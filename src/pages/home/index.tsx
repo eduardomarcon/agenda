@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Calendar, Container, Hero } from '@/pages/home/styles'
 
 import calendarImage from '../../assets/calendar.png'
+import { ClaimUsernameForm } from '@/pages/home/components/ClaimUsernameForm'
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
         <Text size="xl">
           Connect your calendar and let people schedule a meeting with you
         </Text>
+
+        <ClaimUsernameForm />
       </Hero>
 
       <Calendar>
