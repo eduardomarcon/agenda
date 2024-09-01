@@ -12,6 +12,7 @@ model User {
   username   String  @unique
   fullname   String
   email      String? @unique
+  bio        String? @db.Text
   avatar_url String?
 
   created_at DateTime @default(now())
