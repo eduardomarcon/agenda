@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { api } from '@/lib/axios'
 import { AxiosError } from 'axios'
+import { NextSeo } from 'next-seo'
 
 const registerFormSchema = z.object({
   username: z
@@ -59,33 +60,40 @@ export default function Register() {
   }
 
   return (
-    <Container>
-      <Header>
-        <Heading as="strong">Welcome to Agenda</Heading>
-        <Text></Text>
-        <MultiStep size={4} currentStep={1} />
-      </Header>
+    <>
+      <NextSeo title="create an account | agenda" />
+      <Container>
+        <Header>
+          <Heading as="strong">welcome to agenda</Heading>
+          <Text>we need some information to create your profile</Text>
+          <MultiStep size={4} currentStep={1} />
+        </Header>
 
-      <Form as="form" onSubmit={handleSubmit(handleRegister)}>
-        <label>
-          <Text size="sm">username</Text>
-          <TextInput
-            prefix="m4code.com/"
-            placeholder="your-username"
-            {...register('username')}
-          />
-          {errors.username && <FormError>{errors.username.message}</FormError>}
-        </label>
-        <label>
-          <Text size="sm">full name</Text>
-          <TextInput placeholder="your full name" {...register('fullName')} />
-          {errors.fullName && <FormError>{errors.fullName.message}</FormError>}
-        </label>
-        <Button disabled={isSubmitting}>
-          next
-          <ArrowRight />
-        </Button>
-      </Form>
-    </Container>
+        <Form as="form" onSubmit={handleSubmit(handleRegister)}>
+          <label>
+            <Text size="sm">username</Text>
+            <TextInput
+              prefix="m4code.com/"
+              placeholder="your-username"
+              {...register('username')}
+            />
+            {errors.username && (
+              <FormError>{errors.username.message}</FormError>
+            )}
+          </label>
+          <label>
+            <Text size="sm">full name</Text>
+            <TextInput placeholder="your full name" {...register('fullName')} />
+            {errors.fullName && (
+              <FormError>{errors.fullName.message}</FormError>
+            )}
+          </label>
+          <Button disabled={isSubmitting}>
+            next
+            <ArrowRight />
+          </Button>
+        </Form>
+      </Container>
+    </>
   )
 }
