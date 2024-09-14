@@ -73,6 +73,9 @@ export default function Register() {
           <label>
             <Text size="sm">username</Text>
             <TextInput
+              crossOrigin={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
               prefix="m4code.com/"
               placeholder="your-username"
               {...register('username')}
@@ -83,7 +86,13 @@ export default function Register() {
           </label>
           <label>
             <Text size="sm">full name</Text>
-            <TextInput placeholder="your full name" {...register('fullName')} />
+            <TextInput
+              crossOrigin={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+              placeholder="your full name"
+              {...register('fullName')}
+            />
             {errors.fullName && (
               <FormError>{errors.fullName.message}</FormError>
             )}
